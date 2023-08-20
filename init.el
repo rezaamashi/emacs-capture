@@ -169,9 +169,9 @@
       (setq org-capture-templates
           ;; Tasks
         `(("t" "Tasks / Projects")
-          ("tt" "Today" entry (file+olp ,(concat org_agenda_dir "next.org") "Next Actions")
+          ("tt" "Today" entry (file+olp ,(concat org_agenda_dir "next.org") "Today's Tasks")
            "* NEXT %?\nSCHEDULED:%^T  %U\n  %a\n  %i" :empty-lines 1)
-          ("td" "Today Deadline" entry (file ,(concat org_agenda_dir "next.org") "Next Actions")
+          ("td" "Today Deadline" entry (file ,(concat org_agenda_dir "next.org") "Today's Tasks")
            "* TODO %? \nDEADLINE: %^T\n %U" :empty-lines 1)
           ("ts" "Inbox Scheduled" entry (file+olp ,(concat org_agenda_dir "inbox.org") "Tasks")
            "* TODO %?\nSCHEDULED:%^T  %U\n  %a\n  %i" :empty-lines 1)
@@ -220,14 +220,14 @@
           ("E" "Emails")
           ("Er" "Read Later" entry
            (file+olp ,(concat org_agenda_dir "mail.org") "Read Later")
-           (file ,(concat doom-private-dir "/orgtemplates/mailreadlater.org"))
+           (file ,(concat doom-private-dir "orgtemplates/mailreadlater.org"))
            :empty-lines 1 :immediate-finish t)
           ("Ef" "Follow Up" entry (file+olp ,(concat org_agenda_dir "mail.org") "Follow Up")
-           (file ,(concat doom-private-dir "/orgtemplates/mailfollowup.org"))
+           (file ,(concat doom-private-dir "orgtemplates/mailfollowup.org"))
            :empty-lines 1 :immediate-finish t)
           ("Es" "Send Mail" entry
            (file+olp ,(concat org_agenda_dir "mail.org") "Compose Mail")
-           (file ,(concat doom-private-dir "/orgtemplates/mailsendmail.org"))
+           (file ,(concat doom-private-dir "orgtemplates/mailsendmail.org"))
            :empty-lines 1 :immediate-finish t)
 
           ;; Tracking
@@ -255,15 +255,15 @@
            :empty-lines 1)
           ("jm" "Morning Journal entry" entry
            (function rz/org-journal-find-location)
-           (file ,(concat doom-private-dir "/orgtemplates/morningroutine.org"))
+           (file ,(concat doom-private-dir "orgtemplates/morningroutine.org"))
            :empty-lines 1 :jump-to-captured t)
           ("jn" "Night Journal entry" entry
            (function rz/org-journal-find-location)
-           (file ,(concat doom-private-dir "/orgtemplates/nightroutine.org"))
+           (file ,(concat doom-private-dir "orgtemplates/nightroutine.org"))
            :empty-lines 1 :jump-to-captured t)
           ("jw" "Weekly Review" entry
            (file ,(concat org_journal_weekly_dir "2022.org"))
-           (file ,(concat doom-private-dir "/orgtemplates/weeklyreview.org"))
+           (file ,(concat doom-private-dir "orgtemplates/weeklyreview.org"))
            :empty-lines 1 :jump-to-captured t)
 
           ;; Cookbook
@@ -286,8 +286,6 @@
           ("W" "[pro] Web Reading List" entry
            (file+olp ,(concat org_agenda_dir "reading_list.org") "Web")
            "* RD %? \n%U\n%a" :empty-lines 1))))
-
-
 
 (use-package org-superstar
   :straight t
